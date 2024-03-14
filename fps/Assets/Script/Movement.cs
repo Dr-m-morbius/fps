@@ -8,6 +8,8 @@ public float moveSpeed = 1f;
 public float jumpForce = 10f;
 public float gravityModifier = 1f;
 public float mouseSensitivity = 1f;
+public GameObject bullet;
+public Transform firepoint;
 public Transform theCamera;
 public Transform groundCheckpoint;
 public LayerMask whatIsGround;
@@ -18,6 +20,7 @@ private CharacterController _characterController;
 // Start is called before the first frame update
 void Start()
 {
+
 _characterController = GetComponent<CharacterController>();
 }
 
@@ -65,5 +68,26 @@ Vector2 mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("
 transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y + mouseInput.x, transform.rotation.eulerAngles.z);
 
 theCamera.rotation = Quaternion.Euler(theCamera.rotation.eulerAngles + new Vector3(-mouseInput.y, 0f, 0f));
+
+//shooting
+if(Input.GetMouseButtonDown(0))
+{
+    //find crosshair
+    RaycastHit hit;
+    if(Physics.Raycast(theCamera.position, theCamera.forward, out hit, 50f))
+    {
+        if(Vector3.Distance(theCamera.position,hit.point) > 2f)
+        {
+            firepoint.LookAt(hit.point);
+        }
+    }
+    else
+    {
+        firepoint.LookAt(theCamera.position + (theCamera.forward * 30f));
+    }
+
+    //bullet born
+    Instantiate(bullet, firepoint.position, firepoint.rotation);
+}
 }
 }

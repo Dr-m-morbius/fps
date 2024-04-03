@@ -23,9 +23,28 @@ public class ammo : MonoBehaviour
         _ammoAmount -= 1;
         AmmoText.text = _ammoAmount.ToString();
     }
+    public int GetAmmoAmount()
+    {
+        return _ammoAmount;
+    }
     public void AddAmmo()
     {
-        _ammoAmount += 1;
+        _ammoAmount += 10;
         AmmoText.text = _ammoAmount.ToString();        
+    }
+
+    private void DisplayAmmoText()
+    {
+
+        AmmoText.text = "ammo: " + _ammoAmount.ToString();
+    }
+    
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("ammo"))
+        {
+            Destroy(other.gameObject);
+            AddAmmo();
+        }
     }
 }

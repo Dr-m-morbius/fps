@@ -15,6 +15,7 @@ public Transform groundCheckpoint;
 public LayerMask whatIsGround;
 private bool _canPlayerJump;
 private Vector3 _moveInput;
+private ammo _ammo;
 private CharacterController _characterController;
 
 // Start is called before the first frame update
@@ -22,6 +23,7 @@ void Start()
 {
 
 _characterController = GetComponent<CharacterController>();
+_ammo = GetComponent<ammo>();
 }
 
 // Update is called once per frame
@@ -70,7 +72,7 @@ transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transfor
 theCamera.rotation = Quaternion.Euler(theCamera.rotation.eulerAngles + new Vector3(-mouseInput.y, 0f, 0f));
 
 //shooting
-if(Input.GetMouseButtonDown(0))
+if(Input.GetMouseButtonDown(0) && _ammo.GetAmmoAmount() > 0)
 {
     //find crosshair
     RaycastHit hit;
@@ -88,6 +90,9 @@ if(Input.GetMouseButtonDown(0))
 
     //bullet born
     Instantiate(bullet, firepoint.position, firepoint.rotation);
+
+    //kill ammo
+    _ammo.RemoveAmmo();
 }
 }
 }

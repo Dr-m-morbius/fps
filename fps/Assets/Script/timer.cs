@@ -5,51 +5,52 @@ using TMPro;
 
 public class timer : MonoBehaviour
 {
-    public float timeRemaining = 60f; 
-    public TextMeshProUGUI timertext;
-    private bool isTimerRunning = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+public float timeRemaining = 60f;
+public TextMeshProUGUI timerText;
+private bool _isTimerRunning = false;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(isTimerRunning)
-        {
-            if(timeRemaining > 0)
-            {
-                timeRemaining -= Time.deltaTime;
-                DisplayTime(timeRemaining);
-            }
-            else
-            {
-                timeRemaining = 0;
-                isTimerRunning = false;
-            }
-        }
-    }
+// Start is called before the first frame update
+void Start()
+{
+StartGameTimer();
+}
 
-    public void StartGameTimer()
-    {
-        isTimerRunning = true;
-    }
+// Update is called once per frame
+void Update()
+{
+if(_isTimerRunning)
+{
+if(timeRemaining > 0)
+{
+timeRemaining -= Time.deltaTime;
+// display the timer amount
+DisplayTime(timeRemaining);
+}
+else
+{
+timeRemaining = 0;
+_isTimerRunning = false;
+}
+}
+}
 
-    public void EndGameTimer()
-        {
-            isTimerRunning = false;
-        }
+public void StartGameTimer()
+{
+_isTimerRunning = true;
+}
 
-        private void DisplayTime(float timeToDisplay)
-        {
-            timeToDisplay += 1;
+public void EndGameTimer()
+{
+_isTimerRunning = false;
+}
 
-            float minutes = Mathf.FloorToInt(timeToDisplay /60);
-            float seconds = Mathf.FloorToInt(timeToDisplay % 60); 
+private void DisplayTime(float timeToDisplay)
+{
+timeToDisplay += 1;
 
-            timertext.text = string.Format("{0;00:}");
-        }
-    
+float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+
+timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+}
 }

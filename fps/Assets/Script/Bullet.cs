@@ -17,6 +17,12 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         _rigidbody.velocity = transform.forward * moveSpeed;
+
+        lifeTime -= Time.deltaTime;
+        if(lifeTime <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     void OnTriggerEnter(Collider other)

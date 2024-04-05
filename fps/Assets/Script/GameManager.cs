@@ -19,8 +19,14 @@ public class GameManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void updateTargetAmount()
     {
-        
+        _targetAmount -=1;
+        TargetText.text = "Targets: " + _targetAmount.ToString();
+        if(_targetAmount <= 0)
+        {
+            //stop timer
+            GameObject.Find("GameManager").GetComponent<timer>().EndGameTimer();
+        }
     }
 }

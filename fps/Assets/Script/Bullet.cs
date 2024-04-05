@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -31,6 +32,10 @@ public class Bullet : MonoBehaviour
        {
         Debug.Log("hit the standing target ");
 
+        GameObject.Find("GameManager").GetComponent<GameManager>().updateTargetAmount();
+
+        Destroy(this.gameObject);
+        other.gameObject.SetActive(false);
         //add to scoreboard
         //grey out standing target
        } 
@@ -39,6 +44,11 @@ public class Bullet : MonoBehaviour
     {
         Debug.Log("hit the floating target");
         //add to scoreboard 
+
+        GameObject.Find("GameManager").GetComponent<GameManager>().updateTargetAmount();
+
+        Destroy(this.gameObject);
+        other.gameObject.SetActive(false); 
     
     }
     }

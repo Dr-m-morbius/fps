@@ -3,49 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
-using System.Data;
-using System.Threading;
-
 public class GameManager : MonoBehaviour
 {
-
-    public TextMeshProUGUI TargetText;
+ public TextMeshProUGUI targetText;
     public int winScene;
     public int loseScene;
     private int _targetAmount;
-    private Timer _timer;
+    private timer _timer;
+
     // Start is called before the first frame update
     void Start()
     {
-       _timer = GameObject.Find("GameManager").GetComponent<timer>();
+        _timer = GameObject.Find("GameManager").GetComponent<timer>();
         Cursor.lockState = CursorLockMode.Locked;
-        int floattarget = GameObject.FindGameObjectsWithTag("targetfloat").Length;
-        int standtarget = GameObject.FindGameObjectsWithTag("targetstand").Length;
-        _targetAmount = floattarget + standtarget;
-        TargetText.text = "Tatgets: " + _targetAmount.ToString();
-    }
-
-    // Update is called once per frame
-    public void updateTargetAmount()
-    {
-        _targetAmount -=1;
-        TargetText.text = "Targets: " + _targetAmount.ToString();
-        if(_targetAmount <= 0)
-        {
-            //stop timer
-            GameObject.Find("GameManager").GetComponent<timer>().EndGameTimer();
-             
-
-            //send player to the next scene 
-        SceneManager.LoadScene(winScene);  
-        }
+        int floatingTarget = GameObject.FindGameObjectsWithTag("targetfloat").Length;
+        int standingTarget = GameObject.FindGameObjectsWithTag("targetstand").Length;
+        _targetAmount = floatingTarget + standingTarget;
+        targetText.text = "Targets: " + _targetAmount.ToString();
     }
 
     void Update()
     {
-       if(_timer.GetTimeRemaining() <=0)
-       {
-        SceneManager.LoadScene(loseScene);
-       } 
+        if(_timer.GetTimeRemaining() <= 0)
+        {
+            SceneManager.LoadScene(loseScene);
+        }
+    }
+
+    public void UpdateTargetAmount()
+    {
+        _targetAmount -= 1;
+        targetText.text = "Targets: " + _targetAmount .ToString() ;
+
+        if(_targetAmount <= 0)
+        {
+            //stop the timer
+            GameObject.Find("GameManager").GetComponent<timer>().EndGameTimer();
+
+            //Send player to the win scene
+            SceneManager.LoadScene(winScene);
+        }
     }
 }

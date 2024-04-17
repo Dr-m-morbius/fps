@@ -2956,7 +2956,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4867416089261408432, guid: fbedc98e60796468eb77ee7aa46b1d9f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.46
+      value: 8.8
       objectReference: {fileID: 0}
     - target: {fileID: 4867416089261408432, guid: fbedc98e60796468eb77ee7aa46b1d9f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2964,7 +2964,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4867416089261408432, guid: fbedc98e60796468eb77ee7aa46b1d9f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.48
+      value: -8.5
       objectReference: {fileID: 0}
     - target: {fileID: 4867416089261408432, guid: fbedc98e60796468eb77ee7aa46b1d9f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4739,7 +4739,7 @@ GameObject:
   - component: {fileID: 516387163}
   m_Layer: 0
   m_Name: TargetPoint
-  m_TagString: targetstand
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9673,6 +9673,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ammo_Box (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7201205008130496143, guid: 5e5b018003c554db792ca77f3fcf8ac8, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10432,38 +10436,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4, y: 0.5000001, z: 4}
   m_Center: {x: 0, y: 0.24999999, z: 0}
---- !u!1 &1161443884 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5525159006477574080, guid: 5e5b018003c554db792ca77f3fcf8ac8, type: 3}
-  m_PrefabInstance: {fileID: 4771871063414105566}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &1161443889
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1161443884}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1001 &1176950100
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12803,7 +12775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b91f0d1fc494ec5ba50060b06cc827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetText: {fileID: 1744701181}
+  targetText: {fileID: 1744701181}
   winScene: 1
   loseScene: 2
 --- !u!114 &1384118605
@@ -19132,18 +19104,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5181002674032936314, guid: 5e5b018003c554db792ca77f3fcf8ac8, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.875
-      objectReference: {fileID: 0}
-    - target: {fileID: 5181002674032936314, guid: 5e5b018003c554db792ca77f3fcf8ac8, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.875
-      objectReference: {fileID: 0}
-    - target: {fileID: 5181002674032936314, guid: 5e5b018003c554db792ca77f3fcf8ac8, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.875
-      objectReference: {fileID: 0}
-    - target: {fileID: 5181002674032936314, guid: 5e5b018003c554db792ca77f3fcf8ac8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.56
       objectReference: {fileID: 0}
@@ -19187,17 +19147,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ammo_Box
       objectReference: {fileID: 0}
-    - target: {fileID: 7201205008130496143, guid: 5e5b018003c554db792ca77f3fcf8ac8, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5525159006477574080, guid: 5e5b018003c554db792ca77f3fcf8ac8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1161443889}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e5b018003c554db792ca77f3fcf8ac8, type: 3}
 --- !u!1001 &6297259273685104009
 PrefabInstance:

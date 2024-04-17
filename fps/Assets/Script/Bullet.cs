@@ -32,7 +32,7 @@ public class Bullet : MonoBehaviour
        {
         Debug.Log("hit the standing target ");
 
-        GameObject.Find("GameManager").GetComponent<GameManager>().updateTargetAmount();
+        GameObject.Find("GameManager").GetComponent<GameManager>().UpdateTargetAmount();
 
         Destroy(this.gameObject);
         other.gameObject.SetActive(false);
@@ -45,7 +45,7 @@ public class Bullet : MonoBehaviour
         Debug.Log("hit the floating target");
         //add to scoreboard 
 
-        GameObject.Find("GameManager").GetComponent<GameManager>().updateTargetAmount();
+        GameObject.Find("GameManager").GetComponent<GameManager>().UpdateTargetAmount();
 
         Destroy(this.gameObject);
         other.gameObject.SetActive(false); 

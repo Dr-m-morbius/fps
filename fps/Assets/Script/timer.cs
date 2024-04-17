@@ -43,6 +43,10 @@ public void EndGameTimer()
 {
 _isTimerRunning = false;
 }
+public float GetTimeRemaining()
+{
+    return timeRemaining;
+}
 
 private void DisplayTime(float timeToDisplay)
 {

@@ -47,8 +47,5 @@ public class ammo : MonoBehaviour
             AddAmmo();
         }
     }
-    void OnCollisionEnter(Collision other)
-    {
-        Destroy(this.gameObject);
-    }
+   
 }

@@ -2,15 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+using System.Data;
+using System.Threading;
 
 public class GameManager : MonoBehaviour
 {
 
     public TextMeshProUGUI TargetText;
+    public int winScene;
+    public int loseScene;
     private int _targetAmount;
+    private Timer _timer;
     // Start is called before the first frame update
     void Start()
     {
+       _timer = GameObject.Find("GameManager").GetComponent<timer>();
         Cursor.lockState = CursorLockMode.Locked;
         int floattarget = GameObject.FindGameObjectsWithTag("targetfloat").Length;
         int standtarget = GameObject.FindGameObjectsWithTag("targetstand").Length;
@@ -27,6 +34,18 @@ public class GameManager : MonoBehaviour
         {
             //stop timer
             GameObject.Find("GameManager").GetComponent<timer>().EndGameTimer();
+             
+
+            //send player to the next scene 
+        SceneManager.LoadScene(winScene);  
         }
+    }
+
+    void Update()
+    {
+       if(_timer.GetTimeRemaining() <=0)
+       {
+        SceneManager.LoadScene(loseScene);
+       } 
     }
 }

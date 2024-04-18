@@ -3,13 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System;
+using Unity.VisualScripting;
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
  public TextMeshProUGUI targetText;
     public int winScene;
     public int loseScene;
     private int _targetAmount;
+    //private string _sceneName = "Name";
     private timer _timer;
+     //void Awake()
+    //{
+    //if(Instance != null && Instance != this)
+    //{
+    //    Destroy(this);
+    //}   
+    //else     
+   // {
+   //     Instance = this;
+   //     DontDestroyOnLoad(this);
+   // }
+  ///  }
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +57,10 @@ public class GameManager : MonoBehaviour
             GameObject.Find("GameManager").GetComponent<timer>().EndGameTimer();
 
             //Send player to the win scene
-            SceneManager.LoadScene(winScene);
+            //SceneManager.LoadScene(winScene);
+
+            //send to next scene 
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }

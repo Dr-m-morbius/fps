@@ -10,35 +10,32 @@ public class ammo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Display ammo amount
+        DisplayAmmoAmount();
     }
 
-    // Update is called once per frame
-    public void UpdateAmmoAmount()
-    {
-        
-    }
     public void RemoveAmmo()
     {
         _ammoAmount -= 1;
-        AmmoText.text = _ammoAmount.ToString();
+        DisplayAmmoAmount();
     }
+
+    public void AddAmmo()
+    {
+        _ammoAmount += 10;
+        DisplayAmmoAmount();
+    }
+
     public int GetAmmoAmount()
     {
         return _ammoAmount;
     }
-    public void AddAmmo()
+
+    private void DisplayAmmoAmount()
     {
-        _ammoAmount += 10;
-        AmmoText.text = _ammoAmount.ToString();        
+        AmmoText.text = "Ammo: " + _ammoAmount.ToString();
     }
 
-    private void DisplayAmmoText()
-    {
-
-        AmmoText.text = "ammo: " + _ammoAmount.ToString();
-    }
-    
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("ammo"))
@@ -47,5 +44,4 @@ public class ammo : MonoBehaviour
             AddAmmo();
         }
     }
-   
 }

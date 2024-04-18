@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 public class menus : MonoBehaviour
 {
 
+void Start()
+{
+       Cursor.lockState = CursorLockMode.None;
+}
     public int LevelOne;
     
 
